@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'back.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Vehicles</h4>
+
+                    </p>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Vehicle Number</th>
+                          <th>Vehicle Type</th>
+                          <th>Vehicle Model</th>
+                          <th>Description</th>
+                            <th>Options</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for i in data %}
+                          <tr>
+                            {% for i in data %}
+                          <tr>
+                            <td>{{i.number}}</td>
+                            <td>{{i.type}}</td>
+                            <td>{{i.model}}</td>
+                            <td>{{i.description}}</td>
+
+
+
+                        {% endfor %}
+
+                            <td>
+                                <form action="{% url 'edit1'  dataid=i.id %}">
+                                      <button type="submit" class="btn btn-primary mr-2">Edit</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form  action="{% url 'delete1'  dataid=i.id %}">
+                                      <button type="submit" class="btn btn-primary mr-2">Delete</button>
+                                </form>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+</body>
+{% endblock %}
+</html>
